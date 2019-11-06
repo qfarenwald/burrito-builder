@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 const Orders = ({ orders }) => {
   const orderEls = orders.map(order => {
+    console.log('order', order)
+    console.log(order.ingredients)
+    console.log(order.ingredients)
     return (
       <div className="order">
         <h3>{order.name}</h3>

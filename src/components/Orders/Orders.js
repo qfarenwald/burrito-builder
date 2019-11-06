@@ -3,13 +3,13 @@ import './Orders.css';
 import { connect } from 'react-redux';
 
 const Orders = ({ orders }) => {
-  const orderEls = orders.map(order => {
+  const orderEls = orders.map((order, i) => {
     return (
-      <div className="order">
+      <div className="order" key={i}>
         <h3>{order.name}</h3>
         <ul className="ingredient-list">
-          {order.ingredients.map(ingredient => {
-            return <li>{ingredient}</li>
+          {order.ingredients.map((ingredient, i) => {
+            return <li key={i}>{ingredient}</li>
           })}
         </ul>
       </div>

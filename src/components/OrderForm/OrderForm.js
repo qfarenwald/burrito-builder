@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setOrders } from '../../actions';
+import { addOrder } from '../../actions';
 import { getOrders } from '../../apiCalls';
 
 class OrderForm extends Component {
@@ -30,10 +31,9 @@ class OrderForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { setOrders } = this.props
+    const { addOrder } = this.props
     if (this.state.name !== '' && this.state.ingredients.length !== 0){
-      console.log('hello')
-      // setOrders(this.state)
+      addOrder(this.state)
       this.clearInputs();
     } else {
       console.log('Please fill in name and pick atleast one ingredient')
@@ -80,9 +80,10 @@ export const mapDispatchToProps = (dispatch) => (
   bindActionCreators(
     {
       setOrders,
+      addOrder
     },
     dispatch,
   )
 );
 
-export default connect(null, mapDispatchToProps) (OrderForm);
+export default connect(null, mapDispatchToProps)(OrderForm);

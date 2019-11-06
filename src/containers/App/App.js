@@ -26,16 +26,12 @@ export class App extends Component {
           <h1>Burrito Builder</h1>
           <OrderForm />
         </header>
-        
-        <Orders orders={this.props.orders}/>
+
+        <Orders />
       </main>
     );
   }
 }
-
-export const mapStateToProps = ({ orders }) => ({
-  orders
-});
 
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
@@ -43,5 +39,4 @@ export const mapDispatchToProps = dispatch => (
   }, dispatch)
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-
+export default connect(null, mapDispatchToProps)(App);

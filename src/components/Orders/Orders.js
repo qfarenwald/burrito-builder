@@ -1,8 +1,9 @@
 import React from 'react';
 import './Orders.css';
+import { connect } from 'react-redux';
 
-const Orders = props => {
-  const orderEls = props.orders.map(order => {
+const Orders = ({ orders }) => {
+  const orderEls = orders.map(order => {
     return (
       <div className="order">
         <h3>{order.name}</h3>
@@ -22,4 +23,8 @@ const Orders = props => {
   )
 }
 
-export default Orders;
+export const mapStateToProps = ({ orders }) => ({
+  orders
+});
+
+export default connect(mapStateToProps, null)(Orders);

@@ -31,7 +31,7 @@ class OrderForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { setOrders } = this.props
+    const { addOrder } = this.props
     if (this.state.name !== '' && this.state.ingredients.length !== 0){
       addOrder(this.state)
       this.clearInputs();
@@ -86,4 +86,4 @@ export const mapDispatchToProps = (dispatch) => (
   )
 );
 
-export default connect(null, mapDispatchToProps) (OrderForm);
+export default connect(null, mapDispatchToProps)(OrderForm);

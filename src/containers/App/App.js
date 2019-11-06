@@ -14,6 +14,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    console.log('props', this.props)
     getOrders()
       .then(data => this.props.setOrders(data.orders))
       .catch(err => console.error('Error fetching:', err));

@@ -32,7 +32,6 @@ class OrderForm extends Component {
     console.log('orderform props', this.props)
     e.preventDefault();
     const { setOrders } = this.props
-
     // setOrders(this.state)
     this.clearInputs();
   }

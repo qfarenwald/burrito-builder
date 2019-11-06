@@ -14,6 +14,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    console.log('props', this.props)
     getOrders()
       .then(data => this.props.setOrders(data.orders))
       .catch(err => console.error('Error fetching:', err));
@@ -26,16 +27,12 @@ export class App extends Component {
           <h1>Burrito Builder</h1>
           <OrderForm />
         </header>
-        
-        <Orders orders={this.props.orders}/>
+
+        <Orders />
       </main>
     );
   }
 }
-
-export const mapStateToProps = ({ orders }) => ({
-  orders
-});
 
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
@@ -43,5 +40,4 @@ export const mapDispatchToProps = dispatch => (
   }, dispatch)
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-
+export default connect(null, mapDispatchToProps)(App);

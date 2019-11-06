@@ -2,7 +2,7 @@ import React from 'react';
 import './Orders.css';
 import { connect } from 'react-redux';
 
-const Orders = ({ orders }) => {
+export const Orders = ({ orders }) => {
   const orderEls = orders.map((order, i) => {
     return (
       <div className="order" key={i}>

@@ -13,6 +13,12 @@ class OrderForm extends Component {
     };
   }
 
+  componentDidMount= () => {
+    getOrders()
+      .then(data => this.props.setOrders(data.orders))
+      .catch(err => console.error('Error fetching:', err));
+  }
+
   handleNameChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -26,9 +32,7 @@ class OrderForm extends Component {
     console.log('orderform props', this.props)
     e.preventDefault();
     const { setOrders } = this.props
-    getOrders()
-      .then(data => this.props.setOrders(data.orders))
-      .catch(err => console.error('Error fetching:', err));
+
     // setOrders(this.state)
     this.clearInputs();
   }
